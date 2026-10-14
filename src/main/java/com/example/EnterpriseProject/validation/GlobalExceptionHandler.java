@@ -1,7 +1,6 @@
 package com.example.EnterpriseProject.validation;
 
-import com.example.EnterpriseProject.payload.APIResponse;
-import io.swagger.v3.oas.models.responses.ApiResponse;
+import com.example.EnterpriseProject.payload.output.APIResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -19,6 +18,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> myMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         Map<String, String> response = new HashMap<>();
@@ -30,7 +30,6 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
-
 
 
     @ExceptionHandler(DisabledException.class)
@@ -57,5 +56,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(new APIResponse(false, "Login error: " + ex.getMessage()));
     }
+
 
 }

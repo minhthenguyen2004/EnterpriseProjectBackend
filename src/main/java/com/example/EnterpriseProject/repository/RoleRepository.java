@@ -1,7 +1,7 @@
 package com.example.EnterpriseProject.repository;
 
 import com.example.EnterpriseProject.entity.Role;
-import com.example.EnterpriseProject.state.RoleName;
+import com.example.EnterpriseProject.enums.RoleName;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.example.EnterpriseProject.state;
+package com.example.EnterpriseProject.enums;
 
 public enum RoleName {
     ROLE_ADMIN,

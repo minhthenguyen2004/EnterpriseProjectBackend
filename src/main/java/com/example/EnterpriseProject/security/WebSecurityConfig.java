@@ -3,6 +3,7 @@ package com.example.EnterpriseProject.security;
 import com.example.EnterpriseProject.security.jwt.AuthEntryPoint;
 import com.example.EnterpriseProject.security.jwt.AuthTokenFilter;
 import com.example.EnterpriseProject.security.services.UserDetailsServiceImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +35,11 @@ public class WebSecurityConfig {
     }
 
     @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
+    }
+
+    @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider(userDetailsServiceImpl);
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
@@ -55,14 +61,19 @@ public class WebSecurityConfig {
         http.authorizeHttpRequests((requests)
 
                 -> requests.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .requestMatchers("/h2-console/**").permitAll() //Allow the web to access without authentication
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/public/**").permitAll()
                 .requestMatchers("/v2/api-docs", "/v3/api-docs", "/v3/api-docs/**").permitAll()
                 .requestMatchers("/swagger-ui", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                 .requestMatchers("/swagger-resources/**", "/configuration/**", "/webjars/**").permitAll()
                 .requestMatchers("/favicon.ico", "/error").permitAll()
-                .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "MANAGER", "EMPLOYEE")
+                .requestMatchers("/api/ODMMachine/**", "/test1/api/ODMMachine/**").permitAll()
+
+                //Test
+                .requestMatchers("/api/machines/**", "/api/simulator/**").permitAll()
+
+                .requestMatchers("/test1/api/machines/**", "/test1/api/simulator/**").permitAll()
                 .requestMatchers("/api/test/**").permitAll()
                 .requestMatchers("/images/**").permitAll()
                 .anyRequest().authenticated());

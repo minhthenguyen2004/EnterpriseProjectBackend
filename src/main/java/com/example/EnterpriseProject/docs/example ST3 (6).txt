@@ -1,0 +1,113 @@
+{
+  "carriercode": " need_scan ",
+  "serialnumber": "need_scan ",
+  "kps": [
+    {
+      "kpname": "...",
+      "kpvalue": " N/A "
+    },
+    {
+      "kpname": "...",
+      "kpvalue": " need_scan "
+    },
+    {
+      "kpname": "...",
+      "kpvalue": " need_scan "
+    }
+  ],
+  "step": "STEP03",
+  "action": "N/A",
+  "result": "PASS | FAIL",
+  "cycletime": 19.5,
+  "username": "V0923834",
+  "password": "V0923834",
+  "data_type": "autolink",
+  "groupname": "ASSY_MGMT",
+  "stationip": " need ",
+  "aoidata": {
+    "cycletime": 12.5,
+    "carriercode": "need_scan",
+    "imagesummarys": [
+      {
+        "camera": "TOP",
+        "imagedata": "base64_summary_top",
+        "description": "Top view"
+      }
+    ],
+    "inspectionimages": [
+      {
+        "fov": 1,
+        "camera": "TOP",
+        "image": "base64_full_fov_image_here",
+        "components": [
+          {
+            "componentname": "R1",
+            "location": "X:10,Y:20",
+            "score": 85.5,
+            "measure": 0.12,
+            "result": "FAIL",
+            "errorcode": "E001",
+            "cropimage": "base64_crop_R1_here"
+          },
+          {
+            "componentname": "R2",
+            "location": "X:15,Y:25",
+            "score": 98,
+            "measure": 0.01,
+            "result": "PASS",
+            "errorcode": "",
+            "cropimage": "base64_crop_R2_here"
+          }
+        ]
+      },
+      {
+        "fov": 2,
+        "camera": "BOT",
+        "image": "base64_full_fov_2_here",
+        "components": [
+          {
+            "componentname": "C5",
+            "location": "X:30,Y:40",
+            "score": 95.2,
+            "measure": 0.05,
+            "result": "PASS",
+            "errorcode": "",
+            "cropimage": "base64_crop_C5_here"
+          }
+        ]
+      }
+    ]
+  },
+"screwdata": [
+  {
+    "position": "screw1",
+    "action": "screw",
+    "standardvolume": 123.45,
+    "limitvolume": 123.45,
+    "standardheight": 123.45,
+    "limitheight": 123.45,
+    "realvolume": 123.45,
+    "realheight": 123.45,
+    "torque": 12.3,      
+    "angle": 360.5,      
+    "time": 1.5, 
+    "result": "PASS",     
+    "errorcode": "N/A"    
+  },
+  {
+    "position": "screw2",
+    "action": "unscrew",
+    "standardvolume": 123.45,
+    "limitvolume": 123.45,
+    "standardheight": 123.45,
+    "limitheight": 123.45,
+    "realvolume": 123.45,
+    "realheight": 123.45,
+    "torque": 12.3,      
+    "angle": 360.5,      
+    "time": 1.5, 
+    "result": "PASS",     
+    "errorcode": "N/A"    
+  }
+]
+}

@@ -19,6 +19,16 @@ Các tài khoản dưới đây đã được khởi tạo tự động trong h�
 | `CARD003`         | `employee` | `12345678`            | `ROLE_EMPLOYEE`   | Lê Nhân Viên    | Phòng Kinh Doanh |
 | `CARD004`         | `user`     | `12345678`            | `ROLE_USER`       | Phạm Người Dùng | Khách Hàng       |
 
+### 1.1. 100 Tài khoản giả lập mở rộng (Mock Accounts - CARD101 đến CARD200)
+
+Hệ thống đã bổ sung 100 tài khoản tự động sinh thông qua `DataInitializer` (mật khẩu chung: `12345678`):
+- **5 Quản trị viên (Admin):** `CARD101` - `CARD105` (username: `admin01` - `admin05`, vai trò: `ROLE_ADMIN`, phòng: Ban Giám Đốc)
+- **15 Quản lý (Manager):** `CARD106` - `CARD120` (username: `manager01` - `manager15`, vai trò: `ROLE_MANAGER`, các phòng ban xoay vòng)
+- **50 Nhân viên (Employee):** `CARD121` - `CARD170` (username: `emp01` - `emp50`, vai trò: `ROLE_EMPLOYEE`, các phòng ban xoay vòng)
+- **30 Khách hàng (User):** `CARD171` - `CARD200` (username: `user01` - `user30`, vai trò: `ROLE_USER`, phòng: Khách Hàng)
+- **Trạng thái (`UserStatus`):** Các tài khoản chia hết cho 20 (`CARD120`, `CARD140`, `CARD160`, `CARD180`, `CARD200`) có trạng thái `INACTIVE`, các tài khoản còn lại là `ACTIVE` (rất thuận tiện để kiểm thử bộ lọc trạng thái).
+
+
 ---
 
 ## 2. Bảng các trường hợp kiểm thử (Test Cases Matrix)

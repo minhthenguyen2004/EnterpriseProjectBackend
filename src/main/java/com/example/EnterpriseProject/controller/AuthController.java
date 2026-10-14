@@ -1,6 +1,6 @@
 package com.example.EnterpriseProject.controller;
 
-import com.example.EnterpriseProject.payload.APIResponse;
+import com.example.EnterpriseProject.payload.output.APIResponse;
 import com.example.EnterpriseProject.security.jwt.JwtUtils;
 import com.example.EnterpriseProject.security.request.LoginRequest;
 import com.example.EnterpriseProject.security.response.LoginResponse;
@@ -14,7 +14,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

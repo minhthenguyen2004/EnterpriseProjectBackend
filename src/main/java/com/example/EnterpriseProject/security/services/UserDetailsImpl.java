@@ -1,7 +1,7 @@
 package com.example.EnterpriseProject.security.services;
 
 import com.example.EnterpriseProject.entity.User;
-import com.example.EnterpriseProject.state.UserStatus;
+import com.example.EnterpriseProject.enums.UserStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nullable;
 import lombok.Getter;

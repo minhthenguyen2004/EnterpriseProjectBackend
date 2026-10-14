@@ -1,33 +1,123 @@
-HELP.md
+# ==========================================
+# 1. Environment Variables, Secrets & Credentials (BẢO MẬT)
+# ==========================================
+.env
+.env.*
+*.env
+*.env.*
+!.env.example
+application-local.properties
+application-local.yml
+application-local.yaml
+application-secret.properties
+application-secret.yml
+application-secret.yaml
+application-prod.properties
+application-prod.yml
+application-prod.yaml
+secrets.*
+secret.*
+credentials.json
+client_secret*.json
+service-account*.json
+
+# Certificates, Keys & Keystores (SSL/TLS, JWT, SSH)
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*.jks
+id_rsa*
+id_ed25519*
+
+# Database Dumps & Local Data
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.sql
+
+# ==========================================
+# 2. Build & Compiled Outputs (Maven / Gradle / Java)
+# ==========================================
 target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+build/
+.gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# VM crash logs
+hs_err_pid*
+replay_pid*
+
+# ==========================================
+# 3. Logs
+# ==========================================
+logs/
+*.log
+
+# ==========================================
+# 4. IDEs & Editors
+# ==========================================
+# Spring Tool Suite (STS) / Eclipse
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
+# IntelliJ IDEA
+.idea/
 *.iws
 *.iml
 *.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+# VS Code
 .vscode/
+
+# ==========================================
+# 5. Operating System Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini

@@ -1,6 +1,6 @@
 package com.example.EnterpriseProject.entity;
 
-import com.example.EnterpriseProject.state.UserStatus;
+import com.example.EnterpriseProject.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,0 +1,13 @@
+# ========================================================
+# File mẫu cấu hình cục bộ (Local Development Configuration)
+# Hướng dẫn: Copy file này thành "application-local.properties"
+# File application-local.properties đã được thêm vào .gitignore và sẽ KHÔNG bị push lên Git.
+# ========================================================
+
+# Database credentials
+spring.datasource.url=jdbc:mysql://localhost:3306/enterpriseproject
+spring.datasource.username=root
+spring.datasource.password=your_local_password_here
+
+# JWT Secret (Tạo chuỗi ngẫu nhiên dài ít nhất 256 bits)
+spring.app.jwtSecret=your_jwt_secret_key_here
