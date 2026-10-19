@@ -66,7 +66,7 @@ public class ManufacturingOrder extends BaseTimeEntity {
     private Instant endTime;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "manufacturingOrder", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "manufacturingOrder", fetch = FetchType.LAZY)
     @Builder.Default
     private List<ProductionLog> productionLogs = new ArrayList<>();
 }

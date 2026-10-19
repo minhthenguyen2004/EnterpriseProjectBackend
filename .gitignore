@@ -121,3 +121,4 @@ out/
 ehthumbs.db
 Thumbs.db
 desktop.ini
+src/main/resources/application.properties

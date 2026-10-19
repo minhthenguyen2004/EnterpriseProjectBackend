@@ -40,11 +40,11 @@ public class ApiRequestLog {
     private String stationIp;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "machine_id", foreignKey = @ForeignKey(name = "fk_api_machines"))
+    @JoinColumn(name = "machine_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Machine machine;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "log_id", foreignKey = @ForeignKey(name = "fk_api_prod_logs"))
+    @JoinColumn(name = "log_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private ProductionLog productionLog;
 
     @Column(name = "request_payload", columnDefinition = "json")

@@ -41,11 +41,32 @@ public class Machine extends BaseTimeEntity {
     @Column(name = "group_name", length = 100, nullable = false)
     private String groupName;
 
+    @Column(name = "floor")
+    private String floor;
+
+    @Column(name = "customer")
+    private String customer;
+
+    @Column(name = "factory")
+    private String factory;
+
     @Column(name = "station_code", length = 50, nullable = false)
     private String stationCode;
 
+    @Column(name = "product_name", length = 100)
+    private String productName;
+
+    @Column(name = "product_type", length = 50)
+    private String productType;
+
     @Column(name = "machine_name", length = 100, nullable = false)
     private String machineName;
+
+    @Column(name = "host_name")
+    private String hostName;
+
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "station_ip", length = 45, nullable = false)
     private String stationIp;
@@ -70,12 +91,12 @@ public class Machine extends BaseTimeEntity {
     private Boolean isActive = true;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "machine", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "machine", fetch = FetchType.LAZY)
     @Builder.Default
     private List<MachineStatusLog> statusLogs = new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "machine", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "machine", fetch = FetchType.LAZY)
     @Builder.Default
     private List<ProductionLog> productionLogs = new ArrayList<>();
 }

@@ -40,12 +40,12 @@ public class Line extends BaseTimeEntity {
     private Boolean isActive = true;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "line", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "line", fetch = FetchType.LAZY)
     @Builder.Default
     private List<Machine> machines = new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "line", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "line", fetch = FetchType.LAZY)
     @Builder.Default
     private List<ManufacturingOrder> manufacturingOrders = new ArrayList<>();
 }

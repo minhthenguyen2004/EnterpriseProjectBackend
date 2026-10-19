@@ -32,7 +32,7 @@ public class MachineStatusLog {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "machine_id", nullable = false, foreignKey = @ForeignKey(name = "fk_msl_machines"))
+    @JoinColumn(name = "machine_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Machine machine;
 
     @Enumerated(EnumType.STRING)

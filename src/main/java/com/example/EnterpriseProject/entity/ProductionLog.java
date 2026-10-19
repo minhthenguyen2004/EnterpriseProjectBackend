@@ -39,12 +39,18 @@ public class ProductionLog {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "machine_id", nullable = false, foreignKey = @ForeignKey(name = "fk_prod_machines"))
+    @JoinColumn(name = "machine_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Machine machine;
 
+    @Column(name = "station_code", length = 50)
+    private String stationCode;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mo_id", foreignKey = @ForeignKey(name = "fk_prod_mo"))
+    @JoinColumn(name = "mo_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private ManufacturingOrder manufacturingOrder;
+
+    @Column(name = "mo_number", length = 100)
+    private String moNumber;
 
     @Column(name = "carrier_code", length = 100, nullable = false)
     private String carrierCode;
