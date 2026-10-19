@@ -49,8 +49,8 @@ public class ProductionLog {
     @JoinColumn(name = "mo_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private ManufacturingOrder manufacturingOrder;
 
-    @Column(name = "mo_number", length = 100)
-    private String moNumber;
+    // @Column(name = "mo_number", length = 100, nullable = false)
+    // private String moNumber;
 
     @Column(name = "carrier_code", length = 100, nullable = false)
     private String carrierCode;
