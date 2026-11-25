@@ -1,0 +1,51 @@
+﻿Id,ProductName,ProductType,Step,GroupName,KeyName,DisplayName,ValueType,IsActive,IsRequire,IsVerify,IsByPass,IsSFC
+56,GB300,MGMT,1,ASSY_MGMT,CARRIER CODE,,string,true,true,false,false,false
+57,GB300,MGMT,1,ASSY_MGMT,INNER TRAY,,string,true,true,false,true,true
+58,GB300,MGMT,2,ASSY_MGMT,CARRIER CODE,,string,true,true,false,false,false
+59,GB300,MGMT,2,ASSY_MGMT,COOLANT LEAKGAE,,string,true,true,false,true,true
+60,GB300,MGMT,3,ASSY_MGMT,CARRIER CODE,,string,true,true,false,false,false
+61,GB300,MGMT,3,ASSY_MGMT,SERIAL NUMBER,,string,true,true,false,false,false
+62,GB300,MGMT,3,ASSY_MGMT,MGMT SA,,string,true,true,false,true,true
+66,GB300,MGMT,5,ASSY_AMD,CARRIER CODE,,string,true,true,false,false,false
+67,GB300,MGMT,5,ASSY_AMD,SA AMD,,string,true,true,false,true,true
+69,GB300,MGMT,6,ASSY_SSD,CARRIER CODE,,string,true,true,false,false,false
+71,GB300,MGMT,7,ASSY_SSD,CARRIER CODE,,string,true,true,false,false,false
+73,GB300,MGMT,8,ASSY_SSD,CARRIER CODE,,string,true,true,false,false,false
+76,GB300,MGMT,9,ASSY_SSD,CARRIER CODE,,string,true,true,false,false,false
+77,GB300,MGMT,9,ASSY_SSD,SSD BOARD,,string,true,true,false,true,true
+79,GB300,MGMT,10,ASSY_HSK,CARRIER CODE,,string,true,true,false,false,false
+80,GB300,MGMT,10,ASSY_HSK,CONNECTING HEATSINK,,string,true,true,false,true,true
+82,GB300,MGMT,11,ASSY_HSK,CARRIER CODE,,string,true,true,false,false,false
+83,GB300,MGMT,11,ASSY_HSK,CONNECTING HEATSINK,,string,true,true,false,true,true
+85,GB300,MGMT,12,ASSY_HSK_LED,CARRIER CODE,,string,true,true,false,false,false
+86,GB300,MGMT,12,ASSY_HSK_LED,CONNECTING HEATSINK,,string,true,true,true,false,false
+88,GB300,MGMT,13,ASSY_HSK_LED,CARRIER CODE,,string,true,true,false,false,false
+90,GB300,MGMT,14,ASSY_HSK_LED,CARRIER CODE,,string,true,true,false,false,false
+91,GB300,MGMT,14,ASSY_HSK_LED,MGMT SA,,string,true,true,true,false,false
+92,GB300,MGMT,14,ASSY_HSK_LED,HARNESS 74 PINS,,string,true,true,false,true,true
+93,GB300,MGMT,14,ASSY_HSK_LED,LEAKAGE SENSOR HARNESS 120MM,,string,true,true,false,true,true
+94,GB300,MGMT,14,ASSY_HSK_LED,LEAKAGE SENSOR HARNESS 200MM,,string,true,true,false,true,true
+95,GB300,MGMT,15,ASSY_HSK_LED,CARRIER CODE,,string,true,true,false,false,false
+101,GB300,SWB,1,ASSY_LEAKGAE,CARRIER CODE,,string,true,true,false,false,false
+121,GB300,SWB,1,ASSY_LEAKGAE,FIXTURE,,string,true,true,false,true,true
+122,GB300,SWB,2,ASSY_LEAKGAE,CARRIER CODE,,string,true,true,false,false,false
+126,GB300,SWB,4,ASSY_SA_SWB_HARNESS,CARRIER CODE,,string,true,true,false,false,false
+127,GB300,SWB,4,ASSY_SA_SWB_HARNESS,SWB BOARD,,string,true,true,false,true,true
+128,GB300,SWB,5,ASSY_SA_SWB_HARNESS,CARRIER CODE,,string,true,true,false,false,false
+135,GB300,SWB,3,ASSY_LEAKGAE,CARRIER CODE,,string,true,true,false,false,false
+137,GB300,SWB,7,ASSY_SA_SWB_HARNESS,CARRIER CODE,,string,true,true,false,false,false
+139,GB300,SWB,7,ASSY_SA_SWB_HARNESS,HARNESS CABLE 1,,string,true,true,false,true,true
+140,GB300,SWB,7,ASSY_SA_SWB_HARNESS,HARNESS CABLE 2_2,,string,true,true,false,true,true
+141,GB300,SWB,7,ASSY_SA_SWB_HARNESS,LEAKAGE SENSOR HARNESS 1,,string,true,true,false,true,true
+142,GB300,SWB,8,ASSY_BUSBAR_UDQ,CARRIER CODE,,string,true,true,false,false,false
+143,GB300,SWB,9,ASSY_BUSBAR_UDQ,CARRIER CODE,,string,true,true,false,false,false
+146,GB300,SWB,10,ASSY_BUSBAR_UDQ,CARRIER CODE,,string,true,true,false,false,false
+148,GB300,SWB,10,ASSY_BUSBAR_UDQ,REAL PANEL,,string,true,true,false,true,true
+149,GB300,SWB,6,ASSY_SA_SWB_HARNESS,CARRIER CODE,,string,true,true,false,false,false
+150,GB300,SWB,11,ASSY_BUSBAR_UDQ,CARRIER CODE,,string,true,true,false,false,false
+151,GB300,SWB,12,ASSY_BUSBAR_UDQ,CARRIER CODE,,string,true,true,false,false,false
+155,GB300,SWB,14,SWB_SA_AVI,CARRIER CODE,,string,true,true,false,false,false
+165,GB300,MGMT,16,MGMT_SA_AVI,CARRIER CODE,,string,true,true,false,false,false
+167,GB300,MGMT,12,ASSY_HSK_LED,LED SUB SA,,string,true,true,false,true,true
+168,GB300,SA,1,ASSY_SA_SWB,CARRIER CODE,,string,true,true,false,false,false
+169,GB300,SA,1,ASSY_SA_SWB,INNER TRAY,,string,true,true,false,true,true

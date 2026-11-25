@@ -1,0 +1,29 @@
+﻿ErrorKey,CodeValue,Description
+200,0,Thành công / Success
+400,1,Lỗi định tuyến hoặc dữ liệu đầu vào / Validation error
+403,2,Lỗi cấu hình IP / IP invalid or not configured
+404,3,Sản phẩm chưa cấu hình / Product configuration missing
+411,4,Mã Carrier trống / CarrierCode is empty
+412,5,Lỗi định tuyến sequential / Carrier routing sequence failed
+413,6,Sản phẩm đã hoàn thành trạm này / Carrier completed current step
+414,7,Carrier chưa PreCheck / Carrier missing PreCheck validation
+415,8,Status hoặc ErrorCode không hợp lệ / Status/ErrorCode invalid in Undo
+416,9,Trạm Undo vượt quá cấu hình máy / Step invalid in Undo
+417,0,Không có dữ liệu để Undo / No data found to Undo
+418,10,Sản phẩm đã hoàn thành ở trạm trước đó có cùng chức năng / 产品已在相同功能的上一工站完成
+419,19,Không được Undo qua trạm SFC đã hoàn thành / 不能撤销已完成 the SFC工站
+420,17,Cần gỡ liên kết các trạm SFC trước / 需先解绑SFC工站
+422,11,Mã Serial Number không khớp trạm trước / SerialNumber mismatch
+423,15,Giá trị Key đã được liên kết trước đó / Component value already linked
+425,16,Sản phẩm gửi kết quả là [FAIL] / 产品发送结果为 [FAIL]
+426,18,Sản phẩm bị lỗi lực vít (SCREW FAIL) / 产品螺丝扭力/角度测试 FAIL
+427,20,Trùng lặp giá trị quét trong cùng một lượt / 同一次扫描中存在重复条码
+428,24,Sản phẩm bị lỗi lực nhấn (PRESSFIT FAIL) / 产品压合力/时间测试 FAIL
+429,22,PreCheck đã được xác thực trước đó (Double-call) / PreCheck already validated
+431,12,Thiếu trường dữ liệu bắt buộc / Required key missing
+432,13,Giá trị Key kiểm tra không khớp trạm trước / Cross-step verify key mismatch
+433,21,KPS tai AutoLink khong khop voi gia tri da quet khi PreCheck (KPS Mismatch)
+434,23,Sản phẩm chưa hoàn thành chu trình sản xuất (SN Progress Incomplete)
+435,25,CARRIER LIFECYCLE EXPIRED
+436,26,CARRIER INSPECTION REQUIRED
+500,14,Lỗi hệ thống runtime / System exception

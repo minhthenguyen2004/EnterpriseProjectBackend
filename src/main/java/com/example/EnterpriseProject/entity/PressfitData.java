@@ -1,71 +1,91 @@
 package com.example.EnterpriseProject.entity;
 
-import com.example.EnterpriseProject.enums.TestResult;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 
 /**
- * Bảng pressfit_data: Nhật ký thông số ép lực (Press-fit)
+ * Dữ liệu máy ép nén linh kiện / Shielding / Connector (21 cột đầy đủ)
  */
 @Entity
 @Table(
-    name = "pressfit_data",
-    indexes = {
-        @Index(name = "idx_press_log_id", columnList = "log_id")
-    }
+        name = "press_fit_datas",
+        indexes = {
+                @Index(name = "idx_press_detail", columnList = "id_sn_detail"),
+                @Index(name = "idx_press_serial", columnList = "serial_number")
+        }
 )
-@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PressfitData {
+public class PressFitData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "log_id", nullable = false, foreignKey = @ForeignKey(name = "fk_press_prod_logs"))
-    private ProductionLog productionLog;
+    @Column(name = "id_sn_detail")
+    private Long idSnDetail;
 
-    @Column(name = "press_position", length = 50, nullable = false)
-    private String pressPosition;
+    @Column(name = "carrier_code", length = 100)
+    private String carrierCode;
 
-    @Builder.Default
-    @Column(length = 50, nullable = false)
-    private String action = "PRESS";
+    @Column(name = "serial_number", length = 100)
+    private String serialNumber;
 
-    @Column(name = "press_force", precision = 10, scale = 2, nullable = false)
-    private BigDecimal pressForce;
+    @Column(name = "position", length = 50)
+    private String position;
 
-    @Column(name = "press_distance", precision = 10, scale = 3, nullable = false)
-    private BigDecimal pressDistance;
+    @Column(name = "action", length = 50)
+    private String action;
 
-    @Column(name = "press_time", precision = 6, scale = 2, nullable = false)
-    private BigDecimal pressTime;
+    @Column(name = "standard_force", precision = 12, scale = 4)
+    private BigDecimal standardForce;
 
-    @Enumerated(EnumType.STRING)
-    @Column(length = 10, nullable = false)
-    private TestResult result;
+    @Column(name = "limit_force", precision = 12, scale = 4)
+    private BigDecimal limitForce;
+
+    @Column(name = "real_force", precision = 12, scale = 4)
+    private BigDecimal realForce;
+
+    @Column(name = "unit_force", length = 20)
+    private String unitForce;
+
+    @Column(name = "standard_time", precision = 12, scale = 4)
+    private BigDecimal standardTime;
+
+    @Column(name = "limit_time", precision = 12, scale = 4)
+    private BigDecimal limitTime;
+
+    @Column(name = "real_time", precision = 12, scale = 4)
+    private BigDecimal realTime;
+
+    @Column(name = "unit_time", length = 20)
+    private String unitTime;
+
+    @Column(name = "standard_distance", precision = 12, scale = 4)
+    private BigDecimal standardDistance;
+
+    @Column(name = "limit_distance", precision = 12, scale = 4)
+    private BigDecimal limitDistance;
+
+    @Column(name = "real_distance", precision = 12, scale = 4)
+    private BigDecimal realDistance;
+
+    @Column(name = "unit_distance", length = 20)
+    private String unitDistance;
+
+    @Column(name = "result", length = 20)
+    private String result;
 
     @Column(name = "error_code", length = 50)
     private String errorCode;
 
-    @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private Instant createdAt;
-
-    @PrePersist
-    protected void onCreate() {
-        if (createdAt == null) {
-            createdAt = Instant.now();
-        }
-    }
+    @Column(name = "created_time")
+    private Instant createdTime;
 }
+

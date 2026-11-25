@@ -1,29 +1,22 @@
 package com.example.EnterpriseProject.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Bảng aoi_data: Quản lý toàn bộ phiên kiểm tra ngoại quan quang học của trạm máy
- * Khớp với khối aoidata trong JSON payload
+ * Dữ liệu kiểm tra ngoại quan quang học tự động AOI
  */
 @Entity
 @Table(
-    name = "aoi_data",
-    indexes = {
-        @Index(name = "idx_aoi_log_id", columnList = "log_id"),
-        @Index(name = "idx_aoi_carrier", columnList = "carrier_code")
-    }
+        name = "aoi_datas",
+        indexes = {
+                @Index(name = "idx_aoi_sn", columnList = "serial_number"),
+                @Index(name = "idx_aoi_detail", columnList = "id_sn_detail")
+        }
 )
-@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -35,34 +28,54 @@ public class AoiData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "log_id", nullable = false, foreignKey = @ForeignKey(name = "fk_aoi_prod_logs"))
-    private ProductionLog productionLog;
+    @Column(name = "id_sn_detail")
+    private Long idSnDetail;
 
     @Column(name = "carrier_code", length = 100)
     private String carrierCode;
 
-    @Column(name = "cycle_time", precision = 8, scale = 2)
-    private BigDecimal cycleTime;
+    @Column(name = "serial_number", length = 100)
+    private String serialNumber;
 
-    @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private Instant createdAt;
+    @Column(name = "type", length = 50)
+    private String type;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "aoiData", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<AoiSummaryImage> summaryImages = new ArrayList<>();
+    @Column(name = "camera", length = 50)
+    private String camera;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "aoiData", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<AoiFovInspection> fovInspections = new ArrayList<>();
+    @Column(name = "fov", length = 50)
+    private String fov;
 
-    @PrePersist
-    protected void onCreate() {
-        if (createdAt == null) {
-            createdAt = Instant.now();
-        }
-    }
+    @Column(name = "component_name", length = 100)
+    private String componentName;
+
+    @Column(name = "location", length = 100)
+    private String location;
+
+    @Column(name = "score", precision = 8, scale = 4)
+    private BigDecimal score;
+
+    @Column(name = "measure", precision = 12, scale = 4)
+    private BigDecimal measure;
+
+    @Column(name = "result", length = 20)
+    private String result;
+
+    @Column(name = "error_code", length = 50)
+    private String errorCode;
+
+    @Column(name = "image_path", length = 500)
+    private String imagePath;
+
+    @Column(name = "crop_image_path", length = 500)
+    private String cropImagePath;
+
+    @Column(name = "description", length = 255)
+    private String description;
+
+    @Column(name = "created_time")
+    private Instant createdTime;
+
+    @Column(name = "server_name", length = 100)
+    private String serverName;
 }

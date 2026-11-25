@@ -1,25 +1,22 @@
 package com.example.EnterpriseProject.entity;
 
-import com.example.EnterpriseProject.enums.TestResult;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 
 /**
- * Bảng screw_data: Nhật ký đo lường siết ốc tự động
+ * Dữ liệu siết ốc tự động từ súng siết điện tử (27 cột đầy đủ)
  */
 @Entity
 @Table(
-    name = "screw_data",
-    indexes = {
-        @Index(name = "idx_screw_log_id", columnList = "log_id")
-    }
+        name = "screw_datas",
+        indexes = {
+                @Index(name = "idx_screw_detail", columnList = "id_sn_detail"),
+                @Index(name = "idx_screw_serial", columnList = "serial_number")
+        }
 )
-@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,59 +28,81 @@ public class ScrewData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "log_id", nullable = false, foreignKey = @ForeignKey(name = "fk_screw_prod_logs"))
-    private ProductionLog productionLog;
+    @Column(name = "id_sn_detail")
+    private Long idSnDetail;
 
-    @Column(name = "screw_position", length = 50, nullable = false)
-    private String screwPosition;
+    @Column(name = "carrier_code", length = 100)
+    private String carrierCode;
 
-    @Builder.Default
-    @Column(length = 50, nullable = false)
-    private String action = "screw";
+    @Column(name = "serial_number", length = 100)
+    private String serialNumber;
 
-    @Column(precision = 8, scale = 3, nullable = false)
-    private BigDecimal torque;
+    @Column(name = "position", length = 50)
+    private String position;
 
-    @Column(precision = 8, scale = 2, nullable = false)
-    private BigDecimal angle;
+    @Column(name = "action", length = 50)
+    private String action;
 
-    @Column(name = "screw_time", precision = 6, scale = 2, nullable = false)
-    private BigDecimal screwTime;
-
-    @Column(name = "standard_volume", precision = 10, scale = 3)
+    @Column(name = "standard_volume", precision = 12, scale = 4)
     private BigDecimal standardVolume;
 
-    @Column(name = "limit_volume", precision = 10, scale = 3)
+    @Column(name = "limit_volume", precision = 12, scale = 4)
     private BigDecimal limitVolume;
 
-    @Column(name = "real_volume", precision = 10, scale = 3)
-    private BigDecimal realVolume;
-
-    @Column(name = "standard_height", precision = 10, scale = 3)
+    @Column(name = "standard_height", precision = 12, scale = 4)
     private BigDecimal standardHeight;
 
-    @Column(name = "limit_height", precision = 10, scale = 3)
+    @Column(name = "limit_height", precision = 12, scale = 4)
     private BigDecimal limitHeight;
 
-    @Column(name = "real_height", precision = 10, scale = 3)
+    @Column(name = "real_volume", precision = 12, scale = 4)
+    private BigDecimal realVolume;
+
+    @Column(name = "real_height", precision = 12, scale = 4)
     private BigDecimal realHeight;
 
-    @Enumerated(EnumType.STRING)
-    @Column(length = 10, nullable = false)
-    private TestResult result;
+    @Column(name = "torque", precision = 12, scale = 4)
+    private BigDecimal torque;
+
+    @Column(name = "angle", precision = 12, scale = 4)
+    private BigDecimal angle;
+
+    @Column(name = "time", precision = 12, scale = 4)
+    private BigDecimal time;
+
+    @Column(name = "result", length = 20)
+    private String result;
 
     @Column(name = "error_code", length = 50)
     private String errorCode;
 
-    @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private Instant createdAt;
+    @Column(name = "created_time")
+    private Instant createdTime;
 
-    @PrePersist
-    protected void onCreate() {
-        if (createdAt == null) {
-            createdAt = Instant.now();
-        }
-    }
+    @Column(name = "unit", length = 20)
+    private String unit;
+
+    @Column(name = "standard_torque", precision = 12, scale = 4)
+    private BigDecimal standardTorque;
+
+    @Column(name = "limit_torque", precision = 12, scale = 4)
+    private BigDecimal limitTorque;
+
+    @Column(name = "standard_angle", precision = 12, scale = 4)
+    private BigDecimal standardAngle;
+
+    @Column(name = "limit_angle", precision = 12, scale = 4)
+    private BigDecimal limitAngle;
+
+    @Column(name = "unit_volume", length = 20)
+    private String unitVolume;
+
+    @Column(name = "unit_height", length = 20)
+    private String unitHeight;
+
+    @Column(name = "unit_torque", length = 20)
+    private String unitTorque;
+
+    @Column(name = "unit_angle", length = 20)
+    private String unitAngle;
 }

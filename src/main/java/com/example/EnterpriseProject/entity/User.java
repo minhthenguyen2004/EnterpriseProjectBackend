@@ -22,9 +22,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
-    private String cardId;
+    @Column(name = "employee_id", length = 50, unique = true)
+    private String employeeId;
 
+    public String getCardId() {
+        return employeeId;
+    }
+
+    public void setCardId(String cardId) {
+        this.employeeId = cardId;
+    }
 
     @Column(nullable = false, unique = true)
     private String username;
