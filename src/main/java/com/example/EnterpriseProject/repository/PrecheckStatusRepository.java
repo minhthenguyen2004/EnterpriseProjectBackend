@@ -1,6 +1,7 @@
 package com.example.EnterpriseProject.repository;
 
 import com.example.EnterpriseProject.entity.PrecheckStatus;
+import com.example.EnterpriseProject.enums.BooleanFlag;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -18,5 +19,5 @@ public interface PrecheckStatusRepository extends JpaRepository<PrecheckStatus, 
 
     List<PrecheckStatus> findByLineNameAndStep(String lineName, Integer step);
 
-    List<PrecheckStatus> findByCarrierCodeAndIsPreCheckTrue(String carrierCode);
+    List<PrecheckStatus> findByCarrierCodeAndIsPreCheck(String carrierCode, BooleanFlag isPreCheck);
 }

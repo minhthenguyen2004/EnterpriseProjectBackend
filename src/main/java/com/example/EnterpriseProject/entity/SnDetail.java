@@ -98,7 +98,7 @@ public class SnDetail {
     @Column(name = "employee_id", length = 100)
     private String employeeId;
 
-    @Column(name = "error_code", length = 100)
+    @Column(name = "error_code", length = 1000)
     private String errorCode;
 
     @Column(name = "status", length = 100)

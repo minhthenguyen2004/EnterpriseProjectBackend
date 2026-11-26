@@ -1,5 +1,6 @@
 package com.example.EnterpriseProject.entity;
 
+import com.example.EnterpriseProject.enums.BooleanFlag;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -41,34 +42,40 @@ public class StepConfig {
     private Integer twinStep = 0;
 
     @Builder.Default
-    @Column(name = "allow_carrier_swap")
-    private Boolean allowCarrierSwap = false;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "allow_carrier_swap", length = 10)
+    private BooleanFlag allowCarrierSwap = BooleanFlag.FALSE;
 
     @Builder.Default
-    @Column(name = "resolve_carrier_from_sn")
-    private Boolean resolveCarrierFromSN = false;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "resolve_carrier_from_sn", length = 10)
+    private BooleanFlag resolveCarrierFromSN = BooleanFlag.FALSE;
 
     @Builder.Default
-    @Column(name = "is_sfc_station")
-    private Boolean isSfcStation = false;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "is_sfc_station", length = 10)
+    private BooleanFlag isSfcStation = BooleanFlag.FALSE;
 
     @Column(name = "main_key", length = 100)
     private String mainKey;
 
     @Builder.Default
-    @Column(name = "allow_fail")
-    private Boolean allowFail = false;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "allow_fail", length = 10)
+    private BooleanFlag allowFail = BooleanFlag.FALSE;
 
     @Column(name = "sfc_trigger_step")
     private Integer sfcTriggerStep;
 
     @Builder.Default
-    @Column(name = "sfc_only_pass")
-    private Boolean sfcOnlyPass = false;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "sfc_only_pass", length = 10)
+    private BooleanFlag sfcOnlyPass = BooleanFlag.FALSE;
 
     @Builder.Default
-    @Column(name = "is_sfc_pre_check")
-    private Boolean isSfcPreCheck = false;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "is_sfc_pre_check", length = 10)
+    private BooleanFlag isSfcPreCheck = BooleanFlag.FALSE;
 
     @Builder.Default
     @Column(name = "upload_data_mode")

@@ -1,5 +1,6 @@
 package com.example.EnterpriseProject.entity;
 
+import com.example.EnterpriseProject.enums.BooleanFlag;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -57,7 +58,7 @@ public class CarrierConfig {
 
     @Builder.Default
     @Column(name = "is_active")
-    private Boolean isActive = true;
+    private BooleanFlag isActive = BooleanFlag.TRUE;
 
     @Column(name = "description", length = 255)
     private String description;

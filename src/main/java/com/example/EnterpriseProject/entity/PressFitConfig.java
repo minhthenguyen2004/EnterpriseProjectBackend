@@ -1,5 +1,6 @@
 package com.example.EnterpriseProject.entity;
 
+import com.example.EnterpriseProject.enums.BooleanFlag;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -74,12 +75,14 @@ public class PressFitConfig {
     private String unitDistance;
 
     @Builder.Default
-    @Column(name = "is_require")
-    private Boolean isRequire = true;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "is_require", length = 10)
+    private BooleanFlag isRequire = BooleanFlag.TRUE;
 
     @Builder.Default
-    @Column(name = "is_active")
-    private Boolean isActive = true;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "is_active", length = 10)
+    private BooleanFlag isActive = BooleanFlag.TRUE;
 
     @Column(name = "updated_time")
     private Instant updatedTime;

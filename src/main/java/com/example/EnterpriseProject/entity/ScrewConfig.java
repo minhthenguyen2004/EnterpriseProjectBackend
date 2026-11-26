@@ -1,5 +1,6 @@
 package com.example.EnterpriseProject.entity;
 
+import com.example.EnterpriseProject.enums.BooleanFlag;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -86,11 +87,11 @@ public class ScrewConfig {
 
     @Builder.Default
     @Column(name = "is_require")
-    private Boolean isRequire = true;
+    private BooleanFlag isRequire = BooleanFlag.TRUE;
 
     @Builder.Default
     @Column(name = "is_active")
-    private Boolean isActive = true;
+    private BooleanFlag isActive = BooleanFlag.TRUE;
 
     @Column(name = "updated_time")
     private Instant updatedTime;

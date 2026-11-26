@@ -1,5 +1,6 @@
 package com.example.EnterpriseProject.entity;
 
+import com.example.EnterpriseProject.enums.BooleanFlag;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -54,8 +55,9 @@ public class PrecheckStatus {
     private String carrierCode;
 
     @Builder.Default
-    @Column(name = "is_pre_check")
-    private Boolean isPreCheck = false;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "is_pre_check", length = 10)
+    private BooleanFlag isPreCheck = BooleanFlag.FALSE;
 
     @Column(name = "pre_check_date")
     private Instant preCheckDate;

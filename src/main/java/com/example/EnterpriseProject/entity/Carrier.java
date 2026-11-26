@@ -8,6 +8,7 @@ import java.time.Instant;
 /**
  * Quản lý hồ sơ và vòng đời khay gá mang hàng
  */
+
 @Entity
 @Table(
         name = "carriers",

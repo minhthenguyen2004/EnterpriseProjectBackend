@@ -211,7 +211,7 @@ Hệ thống sau khi chuyển đổi sẽ gồm **27 Java JPA Entities** và **3
   - `groupName` (String, length 100)
   - `step` (Integer)
   - `carrierCode` (String, length 100, Index)
-  - `isPreCheck` (Boolean, default false) - Đã xác thực thành công hay chưa
+  - `isPreCheck` (`BooleanFlag` Enum - `VARCHAR(10)`, default `FALSE`) - Đã xác thực thành công hay chưa
   - `preCheckDate` (Instant) - Thời điểm xác thực
 
 #### 6. Entity: `PrecheckStatusData` (Bảng: `precheck_status_datas`)
@@ -404,14 +404,14 @@ Hệ thống sau khi chuyển đổi sẽ gồm **27 Java JPA Entities** và **3
   - `lineName` (String, length 100, Index)
   - `step` (Integer, Index)
   - `twinStep` (Integer, default 0) - Trạm chạy song song
-  - `allowCarrierSwap` (Boolean, default false) - Cho phép tráo khay tại bước này
-  - `resolveCarrierFromSN` (Boolean, default false)
-  - `isSfcStation` (Boolean, default false) - Trạm đẩy dữ liệu lên hệ thống SFC Foxconn
+  - `allowCarrierSwap` (`BooleanFlag` Enum - `VARCHAR(10)`, default `FALSE`) - Cho phép tráo khay tại bước này
+  - `resolveCarrierFromSN` (`BooleanFlag` Enum - `VARCHAR(10)`, default `FALSE`)
+  - `isSfcStation` (`BooleanFlag` Enum - `VARCHAR(10)`, default `FALSE`) - Trạm đẩy dữ liệu lên hệ thống SFC Foxconn
   - `mainKey` (String, length 100, nullable)
-  - `allowFail` (Boolean, default false)
+  - `allowFail` (`BooleanFlag` Enum - `VARCHAR(10)`, default `FALSE`)
   - `sfcTriggerStep` (Integer, nullable)
-  - `sfcOnlyPass` (Boolean, default false)
-  - `isSfcPreCheck` (Boolean, default false)
+  - `sfcOnlyPass` (`BooleanFlag` Enum - `VARCHAR(10)`, default `FALSE`)
+  - `isSfcPreCheck` (`BooleanFlag` Enum - `VARCHAR(10)`, default `FALSE`)
   - `uploadDataMode` (Integer, default 0)
 
 #### 17. Entity: `CarrierConfig` (Bảng: `carrier_configs`)
@@ -463,8 +463,8 @@ Hệ thống sau khi chuyển đổi sẽ gồm **27 Java JPA Entities** và **3
   - `standardForce` (BigDecimal), `limitForce` (BigDecimal), `unitForce` (String)
   - `standardTime` (BigDecimal), `limitTime` (BigDecimal), `unitTime` (String)
   - `standardDistance` (BigDecimal), `limitDistance` (BigDecimal), `unitDistance` (String)
-  - `isRequire` (Boolean, default true)
-  - `isActive` (Boolean, default true)
+  - `isRequire` (`BooleanFlag` Enum - `VARCHAR(10)`, default `TRUE`)
+  - `isActive` (`BooleanFlag` Enum - `VARCHAR(10)`, default `TRUE`)
   - `updatedTime` (Instant)
   - `updatedBy` (String, length 50, nullable)
 
@@ -677,8 +677,8 @@ SELECT
     sn.error_code,
     COALESCE(sc.twin_step, 0) AS config_twin_step,
     'Trạm thường (Normal)' AS station_type,
-    COALESCE(sc.allow_carrier_swap, FALSE) AS config_allow_carrier_swap,
-    COALESCE(sc.resolve_carrier_from_sn, FALSE) AS config_resolve_carrier_from_sn,
+    COALESCE(sc.allow_carrier_swap, 'FALSE') AS config_allow_carrier_swap,
+    COALESCE(sc.resolve_carrier_from_sn, 'FALSE') AS config_resolve_carrier_from_sn,
     csh.old_carrier_code AS swapped_from_carrier,
     csh.swap_time AS carrier_swap_time,
     csh.ip_address AS swap_ip_address
@@ -758,14 +758,14 @@ CREATE TABLE step_configs (
     line_name VARCHAR(100) NOT NULL,
     step INT NOT NULL,
     twin_step INT DEFAULT 0,
-    allow_carrier_swap BOOLEAN DEFAULT FALSE,
-    resolve_carrier_from_sn BOOLEAN DEFAULT FALSE,
-    is_sfc_station BOOLEAN DEFAULT FALSE,
+    allow_carrier_swap VARCHAR(10) DEFAULT 'FALSE',
+    resolve_carrier_from_sn VARCHAR(10) DEFAULT 'FALSE',
+    is_sfc_station VARCHAR(10) DEFAULT 'FALSE',
     main_key VARCHAR(100),
-    allow_fail BOOLEAN DEFAULT FALSE,
+    allow_fail VARCHAR(10) DEFAULT 'FALSE',
     sfc_trigger_step INT,
-    sfc_only_pass BOOLEAN DEFAULT FALSE,
-    is_sfc_pre_check BOOLEAN DEFAULT FALSE,
+    sfc_only_pass VARCHAR(10) DEFAULT 'FALSE',
+    is_sfc_pre_check VARCHAR(10) DEFAULT 'FALSE',
     upload_data_mode INT DEFAULT 0,
     INDEX idx_step_cfg_lookup (product_name, product_type, line_name, step)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -831,8 +831,8 @@ CREATE TABLE press_fit_configs (
     standard_distance DECIMAL(12,4) DEFAULT 0,
     limit_distance DECIMAL(12,4) DEFAULT 0,
     unit_distance VARCHAR(20),
-    is_require BOOLEAN DEFAULT TRUE,
-    is_active BOOLEAN DEFAULT TRUE,
+    is_require VARCHAR(10) DEFAULT 'TRUE',
+    is_active VARCHAR(10) DEFAULT 'TRUE',
     updated_time DATETIME(6),
     updated_by VARCHAR(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -942,7 +942,7 @@ CREATE TABLE precheck_status (
     group_name VARCHAR(100),
     step INT,
     carrier_code VARCHAR(100),
-    is_pre_check BOOLEAN DEFAULT FALSE,
+    is_pre_check VARCHAR(10) DEFAULT 'FALSE',
     pre_check_date DATETIME(6),
     INDEX idx_precheck_carrier (carrier_code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1244,8 +1244,8 @@ SELECT
     sn.error_code,
     COALESCE(sc.twin_step, 0) AS config_twin_step,
     'Trạm thường (Normal)' AS station_type,
-    COALESCE(sc.allow_carrier_swap, FALSE) AS config_allow_carrier_swap,
-    COALESCE(sc.resolve_carrier_from_sn, FALSE) AS config_resolve_carrier_from_sn,
+    COALESCE(sc.allow_carrier_swap, 'FALSE') AS config_allow_carrier_swap,
+    COALESCE(sc.resolve_carrier_from_sn, 'FALSE') AS config_resolve_carrier_from_sn,
     csh.old_carrier_code AS swapped_from_carrier,
     csh.swap_time AS carrier_swap_time,
     csh.ip_address AS swap_ip_address

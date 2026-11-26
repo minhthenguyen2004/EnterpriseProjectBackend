@@ -1,5 +1,6 @@
 package com.example.EnterpriseProject.entity;
 
+import com.example.EnterpriseProject.enums.BooleanFlag;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -50,21 +51,21 @@ public class ProductConfig {
 
     @Builder.Default
     @Column(name = "is_active")
-    private Boolean isActive = true;
+    private BooleanFlag isActive = BooleanFlag.TRUE;
 
     @Builder.Default
     @Column(name = "is_require")
-    private Boolean isRequire = true;
+    private BooleanFlag isRequire = BooleanFlag.TRUE;
 
     @Builder.Default
     @Column(name = "is_verify")
-    private Boolean isVerify = false;
+    private BooleanFlag isVerify = BooleanFlag.FALSE;
 
     @Builder.Default
     @Column(name = "is_by_pass")
-    private Boolean isByPass = false;
+    private BooleanFlag isByPass = BooleanFlag.FALSE;
 
     @Builder.Default
     @Column(name = "is_sfc")
-    private Boolean isSfc = false;
+    private BooleanFlag isSfc = BooleanFlag.FALSE;
 }
